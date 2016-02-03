@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
 
     @IBOutlet weak var memeImageView: UIImageView!
     override func viewDidLoad() {
@@ -19,7 +20,24 @@ class ViewController: UIViewController {
 
     @IBAction func launchPhotoPicker(sender: AnyObject) {
         let pickerController = UIImagePickerController()
+        pickerController.delegate = self
         self.presentViewController(pickerController, animated: true, completion: nil)
+    }
+    
+    // Delegate Function from UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        print("Did Finish Picking Image")
+    }
+    
+    // Delegate Function from UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        print("Did Finish Picking Media")
+    }
+    
+    // Delegate Function from UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        print("Did Cancel Picker Controller")
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 

@@ -25,12 +25,18 @@ UINavigationControllerDelegate {
     }
     
     // Delegate Function from UIImagePickerControllerDelegate
+    // Under what circumstances would this be called?
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         print("Did Finish Picking Image")
     }
     
     // Delegate Function from UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        {
+            self.memeImageView.image = image
+        }
+        dismissViewControllerAnimated(true, completion: nil)
         print("Did Finish Picking Media")
     }
     

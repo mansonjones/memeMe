@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					3CA85E4D1C61BA0100DF07FF = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = B23MDM8ZJF;
 					};
 					3CA85E611C61BA0200DF07FF = {
 						CreatedOnToolsVersion = 7.2;
@@ -397,10 +398,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = memeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manson.project-v1.memeMe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -408,10 +412,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = memeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.manson.project-v1.memeMe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,6 +489,7 @@
 				3CA85E781C61BA0200DF07FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CA85E791C61BA0200DF07FF /* Build configuration list for PBXNativeTarget "memeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +498,7 @@
 				3CA85E7B1C61BA0200DF07FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CA85E7C1C61BA0200DF07FF /* Build configuration list for PBXNativeTarget "memeMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +507,7 @@
 				3CA85E7E1C61BA0200DF07FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

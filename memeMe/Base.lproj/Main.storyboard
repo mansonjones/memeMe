@@ -44,6 +44,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-52-07q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="fBF-tL-W0L">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="MbT-OH-pMe">
+                                            <connections>
+                                                <action selector="shareTheMeme:" destination="BYZ-38-t0r" id="qBS-0d-4gq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
                                 <rect key="frame" x="229" y="469" width="142" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

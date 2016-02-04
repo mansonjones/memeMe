@@ -95,7 +95,7 @@ class ViewController: UIViewController,
     
     // Delegate Function from UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = "This goes in top and bottom"
+        textField.text = ""
     }
     
     // Dismiss keyboard upon return

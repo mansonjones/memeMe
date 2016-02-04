@@ -129,7 +129,7 @@ class ViewController: UIViewController,
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
-        let image = UIImage()
+        let image: UIImage = self.memeImageView.image!
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         self.presentViewController(controller, animated: true, completion: nil)
     }

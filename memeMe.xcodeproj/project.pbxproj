@@ -14,6 +14,7 @@
 		3CA85E5C1C61BA0200DF07FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CA85E5A1C61BA0200DF07FF /* LaunchScreen.storyboard */; };
 		3CA85E671C61BA0200DF07FF /* memeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA85E661C61BA0200DF07FF /* memeMeTests.swift */; };
 		3CA85E721C61BA0200DF07FF /* memeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA85E711C61BA0200DF07FF /* memeMeUITests.swift */; };
+		3CF3D51B1C62F7B800FAD07D /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF3D51A1C62F7B800FAD07D /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3CA85E6D1C61BA0200DF07FF /* memeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA85E711C61BA0200DF07FF /* memeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memeMeUITests.swift; sourceTree = "<group>"; };
 		3CA85E731C61BA0200DF07FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CF3D51A1C62F7B800FAD07D /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				3CA85E511C61BA0100DF07FF /* AppDelegate.swift */,
 				3CA85E531C61BA0100DF07FF /* ViewController.swift */,
+				3CF3D51A1C62F7B800FAD07D /* Meme.swift */,
 				3CA85E551C61BA0200DF07FF /* Main.storyboard */,
 				3CA85E581C61BA0200DF07FF /* Assets.xcassets */,
 				3CA85E5A1C61BA0200DF07FF /* LaunchScreen.storyboard */,
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CF3D51B1C62F7B800FAD07D /* Meme.swift in Sources */,
 				3CA85E541C61BA0100DF07FF /* ViewController.swift in Sources */,
 				3CA85E521C61BA0100DF07FF /* AppDelegate.swift in Sources */,
 			);

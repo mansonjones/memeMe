@@ -22,6 +22,9 @@ class ViewController: UIViewController,
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var topNavigationBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.textAlignment = .Center
@@ -146,7 +149,9 @@ class ViewController: UIViewController,
     
     func generateMemedImage() -> UIImage
     {
-        // TODO: Hide toolbar and navigation bar
+        // Hide toolbar and navigation bar while rendering meme
+        self.bottomToolbar.hidden = true
+        self.topNavigationBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -155,7 +160,9 @@ class ViewController: UIViewController,
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar and navigation bar
+        // Unhide toolbar and navigation bar now that meme is rendered
+        self.bottomToolbar.hidden = false
+        self.topNavigationBar.hidden = false
         
         return memedImage
     }

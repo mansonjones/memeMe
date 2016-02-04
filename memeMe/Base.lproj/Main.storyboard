@@ -21,25 +21,25 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecn-1v-KfB">
                                 <rect key="frame" x="0.0" y="548" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Album" width="83" id="uEY-nl-1SN">
-                                        <connections>
-                                            <action selector="launchPhotoPicker:" destination="BYZ-38-t0r" id="hoa-FK-VX8"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem systemItem="camera" id="TI9-1H-SNk">
                                         <connections>
                                             <action selector="launchCamera:" destination="BYZ-38-t0r" id="4Tb-R8-TKJ"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Album" width="83" id="uEY-nl-1SN">
+                                        <connections>
+                                            <action selector="launchPhotoPicker:" destination="BYZ-38-t0r" id="hoa-FK-VX8"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-cw-EJ0">
-                                <rect key="frame" x="112" y="75" width="376" height="450"/>
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7o1-82-XvA">
-                                <rect key="frame" x="229" y="108" width="142" height="30"/>
+                                <rect key="frame" x="138" y="108" width="325" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="WHh-eK-iYF"/>
+                                    <constraint firstAttribute="width" constant="325" id="WHh-eK-iYF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -47,17 +47,18 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-52-07q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="fBF-tL-W0L">
+                                    <navigationItem id="fBF-tL-W0L">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="MbT-OH-pMe">
                                             <connections>
                                                 <action selector="shareTheMeme:" destination="BYZ-38-t0r" id="qBS-0d-4gq"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="O0d-75-TzC"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
-                                <rect key="frame" x="229" y="469" width="142" height="30"/>
+                                <rect key="frame" x="138" y="524" width="325" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -66,11 +67,11 @@
                         <constraints>
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="3GD-hH-FB1"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="trailing" secondItem="eu3-Tc-zww" secondAttribute="trailing" id="3QF-Md-2xb"/>
-                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="4ea-CR-fb7"/>
+                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4ea-CR-fb7"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="88" id="90g-wM-Mz5"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVi-qi-VId"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="leading" secondItem="eu3-Tc-zww" secondAttribute="leading" id="LKo-Fd-mya"/>
-                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="92" id="RWm-GX-liH"/>
+                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RWm-GX-liH"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="T6v-fe-TWp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ecn-1v-KfB" secondAttribute="bottom" constant="8" id="c1c-za-1iX"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eSr-DH-IYq"/>
@@ -80,9 +81,11 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="eu3-Tc-zww" id="8Nb-hK-1tN"/>
+                        <outlet property="bottomToolbar" destination="ecn-1v-KfB" id="ZlV-OH-v3N"/>
                         <outlet property="cameraBarButton" destination="TI9-1H-SNk" id="rRI-My-s3O"/>
                         <outlet property="memeImageView" destination="Nja-cw-EJ0" id="TqM-Jz-bMt"/>
                         <outlet property="shareButton" destination="MbT-OH-pMe" id="lMr-BT-K97"/>
+                        <outlet property="topNavigationBar" destination="qJ3-52-07q" id="s8d-aj-m9W"/>
                         <outlet property="topTextField" destination="7o1-82-XvA" id="BkM-As-ubO"/>
                     </connections>
                 </viewController>

@@ -26,6 +26,14 @@ class ViewController: UIViewController,
         bottomTextField.textAlignment = .Center
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
+        // This defines a font that is similar to the typical meme font
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName: UIColor.blackColor(),
+            NSForegroundColorAttributeName: UIColor.whiteColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size:40.0)!,
+            NSStrokeWidthAttributeName: 2.0]
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
     }
 
     override func viewWillAppear(animated: Bool) {

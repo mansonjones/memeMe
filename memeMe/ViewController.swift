@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+class ViewController: UIViewController,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate,
+    UITextFieldDelegate
+{
 
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var cameraBarButton: UIBarButtonItem!
@@ -21,6 +24,8 @@ UINavigationControllerDelegate {
         super.viewDidLoad()
         topTextField.textAlignment = .Center
         bottomTextField.textAlignment = .Center
+        self.topTextField.delegate = self
+        self.bottomTextField.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -62,6 +67,17 @@ UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Did Cancel Picker Controller")
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // Delegate Function from UITextFieldDelegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.text = "This goes in top and bottom"
+    }
+    
+    // Delegate Function from UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

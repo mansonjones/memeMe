@@ -82,6 +82,7 @@
                         <outlet property="bottomTextField" destination="eu3-Tc-zww" id="8Nb-hK-1tN"/>
                         <outlet property="cameraBarButton" destination="TI9-1H-SNk" id="rRI-My-s3O"/>
                         <outlet property="memeImageView" destination="Nja-cw-EJ0" id="TqM-Jz-bMt"/>
+                        <outlet property="shareButton" destination="MbT-OH-pMe" id="lMr-BT-K97"/>
                         <outlet property="topTextField" destination="7o1-82-XvA" id="BkM-As-ubO"/>
                     </connections>
                 </viewController>

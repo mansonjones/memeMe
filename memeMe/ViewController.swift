@@ -20,6 +20,8 @@ class ViewController: UIViewController,
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.textAlignment = .Center
@@ -43,6 +45,8 @@ class ViewController: UIViewController,
         // Subscribe to the keyboard notifications, to allow the view to 
         // slide up or down so that the keyboard does not obscure the view
         self.subscribeToKeyboardNotifications()
+
+        shareButton.enabled = memeImageView.image == nil ? false : true
     }
     
     override func viewWillDisappear(animated: Bool) {

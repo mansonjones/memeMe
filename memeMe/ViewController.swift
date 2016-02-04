@@ -128,5 +128,21 @@ class ViewController: UIViewController,
         )
     }
     
+    func generateMemedImage() -> UIImage
+    {
+        // TODO: Hide toolbar and navigation bar
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show toolbar and navigation bar
+        
+        return memedImage
+    }
+    
 }
 

@@ -12,16 +12,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
 
     @IBOutlet weak var memeImageView: UIImageView!
+    @IBOutlet weak var cameraBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        cameraBarButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    }
 
     @IBAction func launchPhotoPicker(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(pickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func launchCamera(sender: AnyObject) {
+        let cameraController = UIImagePickerController()
+        cameraController.delegate = self
+        cameraController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(cameraController, animated: true, completion: nil)
     }
     
     // Delegate Function from UIImagePickerControllerDelegate

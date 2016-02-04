@@ -26,6 +26,11 @@
                                             <action selector="launchPhotoPicker:" destination="BYZ-38-t0r" id="hoa-FK-VX8"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="TI9-1H-SNk">
+                                        <connections>
+                                            <action selector="launchCamera:" destination="BYZ-38-t0r" id="4Tb-R8-TKJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-cw-EJ0">
@@ -44,6 +49,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraBarButton" destination="TI9-1H-SNk" id="rRI-My-s3O"/>
                         <outlet property="memeImageView" destination="Nja-cw-EJ0" id="TqM-Jz-bMt"/>
                     </connections>
                 </viewController>

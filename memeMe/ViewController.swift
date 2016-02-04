@@ -128,6 +128,12 @@ class ViewController: UIViewController,
         )
     }
     
+    @IBAction func shareTheMeme(sender: AnyObject) {
+        let image = UIImage()
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
     func generateMemedImage() -> UIImage
     {
         // TODO: Hide toolbar and navigation bar

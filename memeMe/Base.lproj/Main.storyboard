@@ -36,21 +36,41 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-cw-EJ0">
                                 <rect key="frame" x="112" y="75" width="376" height="450"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Top" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7o1-82-XvA">
+                                <rect key="frame" x="229" y="108" width="142" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="142" id="ToT-Ew-v5C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
+                                <rect key="frame" x="229" y="469" width="142" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ecn-1v-KfB" firstAttribute="top" secondItem="eu3-Tc-zww" secondAttribute="bottom" constant="49" id="14r-gl-hI8"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="4ea-CR-fb7"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="leading" secondItem="7o1-82-XvA" secondAttribute="leading" id="5xd-Hg-Ied"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVi-qi-VId"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="92" id="RWm-GX-liH"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="T6v-fe-TWp"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="trailing" secondItem="7o1-82-XvA" secondAttribute="trailing" id="UwH-WC-2zm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ecn-1v-KfB" secondAttribute="bottom" constant="8" id="c1c-za-1iX"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eSr-DH-IYq"/>
+                            <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="88" id="tjC-JO-sqH"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTj-J8-ncr"/>
+                            <constraint firstItem="7o1-82-XvA" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="xgY-7Q-IHn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="eu3-Tc-zww" id="8Nb-hK-1tN"/>
                         <outlet property="cameraBarButton" destination="TI9-1H-SNk" id="rRI-My-s3O"/>
                         <outlet property="memeImageView" destination="Nja-cw-EJ0" id="TqM-Jz-bMt"/>
+                        <outlet property="topTextField" destination="7o1-82-XvA" id="BkM-As-ubO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

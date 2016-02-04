@@ -134,8 +134,13 @@ class ViewController: UIViewController,
     
     @IBAction func shareTheMeme(sender: AnyObject) {
         // let image: UIImage = self.memeImageView.image!
-        let image = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let memedImage = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        controller.completionWithItemsHandler = { (s:String?, ok:Bool, items: [AnyObject]?, err:NSError?) -> Void in
+            print("completed completed completed")
+            self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
         self.presentViewController(controller, animated: true, completion: nil)
     }
     

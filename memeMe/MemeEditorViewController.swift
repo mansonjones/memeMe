@@ -30,7 +30,7 @@ class MemeEditorViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.darkGrayColor()
+        view.backgroundColor = UIColor.darkGrayColor()
         self.topTextField.text = "TOP"
         self.bottomTextField.text = "BOTTOM"
         self.topTextFieldInUse = false
@@ -125,14 +125,14 @@ class MemeEditorViewController: UIViewController,
     // Move the view up when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
         if (self.bottomTextField.isFirstResponder()) {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     // Hide the view down when the keyboard covers the bottom text field
     func keyboardWillHide(notification: NSNotification) {
         if (self.bottomTextField.isFirstResponder()) {
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
         }
     }
     
@@ -183,8 +183,8 @@ class MemeEditorViewController: UIViewController,
         self.topNavigationBar.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

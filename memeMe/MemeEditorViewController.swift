@@ -29,6 +29,8 @@ class MemeEditorViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.darkGrayColor()
         self.topTextField.text = "TOP"
         self.bottomTextField.text = "BOTTOM"
         self.topTextFieldInUse = false

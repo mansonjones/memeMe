@@ -83,24 +83,16 @@ class MemeEditorViewController: UIViewController,
     }
     
     // Delegate Function from UIImagePickerControllerDelegate
-    // Under what circumstances would this be called?
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        print("Did Finish Picking Image")
-    }
-    
-    // Delegate Function from UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
             self.memeImageView.image = image
         }
         dismissViewControllerAnimated(true, completion: nil)
-        print("Did Finish Picking Media")
     }
     
     // Delegate Function from UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        print("Did Cancel Picker Controller")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -130,16 +122,15 @@ class MemeEditorViewController: UIViewController,
         return true
     }
     
-    // Move the view when the keyboard covers the bottom text field
+    // Move the view up when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
         if (self.bottomTextField.isFirstResponder()) {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
-    //
+    // Hide the view down when the keyboard covers the bottom text field
     func keyboardWillHide(notification: NSNotification) {
-        print(" keyboard will hide")
         if (self.bottomTextField.isFirstResponder()) {
             self.view.frame.origin.y += getKeyboardHeight(notification)
         }
@@ -147,8 +138,6 @@ class MemeEditorViewController: UIViewController,
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
-        print(self.topTextField.isFirstResponder())
-        print(self.bottomTextField.isFirstResponder())
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
@@ -181,7 +170,6 @@ class MemeEditorViewController: UIViewController,
         let memedImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         controller.completionWithItemsHandler = { (s:String?, ok:Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            print("completed completed completed")
             self.save()
             self.dismissViewControllerAnimated(true, completion: nil)
         }

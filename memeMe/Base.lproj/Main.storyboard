@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -48,6 +48,9 @@
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-52-07q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="sTJ-bB-BVH"/>
+                                </constraints>
                                 <items>
                                     <navigationItem id="fBF-tL-W0L">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="MbT-OH-pMe">
@@ -58,8 +61,18 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="O0d-75-TzC"/>
                                     </navigationItem>
                                 </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sTJ-bB-BVH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="sTJ-bB-BVH"/>
+                                    </mask>
+                                </variation>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
                                 <rect key="frame" x="138" y="524" width="325" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -71,24 +84,44 @@
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="3GD-hH-FB1"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="trailing" secondItem="eu3-Tc-zww" secondAttribute="trailing" id="3QF-Md-2xb"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4ea-CR-fb7"/>
-                            <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="88" id="90g-wM-Mz5"/>
+                            <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="108" id="HT0-iR-VUJ"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="ecn-1v-KfB" secondAttribute="centerX" id="Hll-6a-L1K"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVi-qi-VId"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="trailing" secondItem="7o1-82-XvA" secondAttribute="trailing" id="JK9-rs-Z3E"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="leading" secondItem="eu3-Tc-zww" secondAttribute="leading" id="LKo-Fd-mya"/>
-                            <constraint firstItem="eu3-Tc-zww" firstAttribute="top" secondItem="Nja-cw-EJ0" secondAttribute="bottom" constant="-100" id="QeO-Va-B7s"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="leading" secondItem="7o1-82-XvA" secondAttribute="leading" id="LtD-dN-r9x"/>
+                            <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="qJ3-52-07q" secondAttribute="bottom" constant="64" id="Py4-lW-Qfe"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RWm-GX-liH"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="T6v-fe-TWp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ecn-1v-KfB" secondAttribute="bottom" constant="8" id="c1c-za-1iX"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eSr-DH-IYq"/>
+                            <constraint firstItem="qJ3-52-07q" firstAttribute="leading" secondItem="ecn-1v-KfB" secondAttribute="leading" id="gOL-zC-w2W"/>
+                            <constraint firstItem="ecn-1v-KfB" firstAttribute="top" secondItem="eu3-Tc-zww" secondAttribute="bottom" constant="29" id="oNm-RE-tTG"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTj-J8-ncr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="QeO-Va-B7s"/>
+                                <exclude reference="gOL-zC-w2W"/>
+                                <exclude reference="HT0-iR-VUJ"/>
+                                <exclude reference="Py4-lW-Qfe"/>
+                                <exclude reference="Hll-6a-L1K"/>
+                                <exclude reference="JK9-rs-Z3E"/>
+                                <exclude reference="LtD-dN-r9x"/>
+                                <exclude reference="oNm-RE-tTG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="QeO-Va-B7s"/>
+                                <include reference="gOL-zC-w2W"/>
+                                <exclude reference="3QF-Md-2xb"/>
+                                <include reference="HT0-iR-VUJ"/>
+                                <exclude reference="LKo-Fd-mya"/>
+                                <include reference="Py4-lW-Qfe"/>
+                                <exclude reference="3GD-hH-FB1"/>
+                                <include reference="Hll-6a-L1K"/>
+                                <include reference="JK9-rs-Z3E"/>
+                                <include reference="LtD-dN-r9x"/>
+                                <include reference="oNm-RE-tTG"/>
                             </mask>
                         </variation>
                     </view>

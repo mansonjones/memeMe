@@ -27,8 +27,11 @@ class MemeEditorViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topTextField.textAlignment = .Center
-        bottomTextField.textAlignment = .Center
+        self.topTextField.textAlignment = .Center
+        self.bottomTextField.textAlignment = .Center
+        self.topTextField.text = "TOP"
+        self.bottomTextField.text = "BOTTOM"
+        
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
         // This defines a font that is similar to the typical meme font
@@ -37,8 +40,8 @@ class MemeEditorViewController: UIViewController,
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size:40.0)!,
             NSStrokeWidthAttributeName: -3.0]
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
+        self.topTextField.defaultTextAttributes = memeTextAttributes
+        self.bottomTextField.defaultTextAttributes = memeTextAttributes
         cameraBarButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
@@ -58,10 +61,10 @@ class MemeEditorViewController: UIViewController,
     }
 
     @IBAction func launchPhotoPicker(sender: AnyObject) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        let photoPickerController = UIImagePickerController()
+        photoPickerController.delegate = self
+        photoPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(photoPickerController, animated: true, completion: nil)
     }
     
     @IBAction func launchCamera(sender: AnyObject) {
@@ -102,17 +105,36 @@ class MemeEditorViewController: UIViewController,
     // (Delegate Function from UITextFieldDelegate)
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if self.topTextField.isFirstResponder() {
+            self.topTextField.resignFirstResponder()
+            return true
+        }
+        if self.bottomTextField.isFirstResponder() {
+            self.bottomTextField.resignFirstResponder()
+            return true
+        }
         return true
     }
     
-    // Move the view when the keyboard covers the text field
+    // Move the view when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if (self.bottomTextField.isFirstResponder()) {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    //
+    func keyboardWillHide(notification: NSNotification) {
+        print(" keyboard will hide")
+        if (self.bottomTextField.isFirstResponder()) {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
+        print(self.topTextField.isFirstResponder())
+        print(self.bottomTextField.isFirstResponder())
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
@@ -120,10 +142,15 @@ class MemeEditorViewController: UIViewController,
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:",
             name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:",
+            name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscripeFromKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self,
+            name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func save() {

@@ -19,6 +19,8 @@ class MemeEditorViewController: UIViewController,
     
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    var topTextFieldInUse: Bool!
+    var bottomTextFieldInUse: Bool!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
@@ -27,10 +29,12 @@ class MemeEditorViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topTextField.textAlignment = .Center
-        self.bottomTextField.textAlignment = .Center
         self.topTextField.text = "TOP"
         self.bottomTextField.text = "BOTTOM"
+        self.topTextFieldInUse = false
+        self.bottomTextFieldInUse = false
+        self.topTextField.tag = 1
+        self.bottomTextField.tag = 2
         
         self.topTextField.delegate = self
         self.bottomTextField.delegate = self
@@ -47,6 +51,8 @@ class MemeEditorViewController: UIViewController,
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.topTextField.textAlignment = .Center
+        self.bottomTextField.textAlignment = .Center
         
         // Subscribe to the keyboard notifications, to allow the view to 
         // slide up or down so that the keyboard does not obscure the view
@@ -98,21 +104,27 @@ class MemeEditorViewController: UIViewController,
     
     // Delegate Function from UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        switch textField.tag {
+        case 1:
+            if (!self.topTextFieldInUse) {
+                textField.text = ""
+                self.topTextFieldInUse = true
+            }
+        case 2:
+            if (!self.bottomTextFieldInUse) {
+                textField.text = ""
+                self.bottomTextFieldInUse = true
+            }
+        default:
+            return
+        }
     }
     
     // Dismiss keyboard upon return
     // (Delegate Function from UITextFieldDelegate)
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if self.topTextField.isFirstResponder() {
-            self.topTextField.resignFirstResponder()
-            return true
-        }
-        if self.bottomTextField.isFirstResponder() {
-            self.bottomTextField.resignFirstResponder()
-            return true
-        }
+        textField.resignFirstResponder()
         return true
     }
     

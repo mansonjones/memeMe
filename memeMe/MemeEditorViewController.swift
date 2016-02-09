@@ -132,7 +132,7 @@ class MemeEditorViewController: UIViewController,
     // Hide the view down when the keyboard covers the bottom text field
     func keyboardWillHide(notification: NSNotification) {
         if (self.bottomTextField.isFirstResponder()) {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.view.frame.origin.y = 0
         }
     }
     

@@ -31,62 +31,62 @@ class MemeEditorViewController: UIViewController,
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.darkGrayColor()
-        self.topTextField.text = "TOP"
-        self.bottomTextField.text = "BOTTOM"
-        self.topTextFieldInUse = false
-        self.bottomTextFieldInUse = false
-        self.topTextField.tag = 1
-        self.bottomTextField.tag = 2
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        topTextFieldInUse = false
+        bottomTextFieldInUse = false
+        topTextField.tag = 1
+        bottomTextField.tag = 2
         
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
         // This defines a font that is similar to the typical meme font
         let memeTextAttributes = [
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size:40.0)!,
             NSStrokeWidthAttributeName: -3.0]
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         cameraBarButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.topTextField.textAlignment = .Center
-        self.bottomTextField.textAlignment = .Center
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
         
         // Subscribe to the keyboard notifications, to allow the view to 
         // slide up or down so that the keyboard does not obscure the view
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
 
         shareButton.enabled = memeImageView.image == nil ? false : true
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscripeFromKeyboardNotifications()
+        unsubscripeFromKeyboardNotifications()
     }
 
     @IBAction func launchPhotoPicker(sender: AnyObject) {
         let photoPickerController = UIImagePickerController()
         photoPickerController.delegate = self
         photoPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(photoPickerController, animated: true, completion: nil)
+        presentViewController(photoPickerController, animated: true, completion: nil)
     }
     
     @IBAction func launchCamera(sender: AnyObject) {
         let cameraController = UIImagePickerController()
         cameraController.delegate = self
         cameraController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(cameraController, animated: true, completion: nil)
+        presentViewController(cameraController, animated: true, completion: nil)
     }
     
     // Delegate Function from UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            self.memeImageView.image = image
+            memeImageView.image = image
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -100,14 +100,14 @@ class MemeEditorViewController: UIViewController,
     func textFieldDidBeginEditing(textField: UITextField) {
         switch textField.tag {
         case 1:
-            if (!self.topTextFieldInUse) {
+            if (!topTextFieldInUse) {
                 textField.text = ""
-                self.topTextFieldInUse = true
+                topTextFieldInUse = true
             }
         case 2:
-            if (!self.bottomTextFieldInUse) {
+            if (!bottomTextFieldInUse) {
                 textField.text = ""
-                self.bottomTextFieldInUse = true
+                bottomTextFieldInUse = true
             }
         default:
             return
@@ -124,14 +124,14 @@ class MemeEditorViewController: UIViewController,
     
     // Move the view up when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
-        if (self.bottomTextField.isFirstResponder()) {
+        if (bottomTextField.isFirstResponder()) {
             view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     // Hide the view down when the keyboard covers the bottom text field
     func keyboardWillHide(notification: NSNotification) {
-        if (self.bottomTextField.isFirstResponder()) {
+        if (bottomTextField.isFirstResponder()) {
             view.frame.origin.y = 0
         }
     }
@@ -158,29 +158,28 @@ class MemeEditorViewController: UIViewController,
     
     func save() {
         _ = Meme(
-            topText: self.topTextField.text,
-            bottomText: self.bottomTextField.text,
-            image: self.memeImageView.image,
-            memedImage: self.memeImageView.image
+            topText: topTextField.text,
+            bottomText: bottomTextField.text,
+            image: memeImageView.image,
+            memedImage: memeImageView.image
         )
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
-        // let image: UIImage = self.memeImageView.image!
         let memedImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         controller.completionWithItemsHandler = { (s:String?, ok:Bool, items: [AnyObject]?, err:NSError?) -> Void in
             self.save()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage
     {
         // Hide toolbar and navigation bar while rendering meme
-        self.bottomToolbar.hidden = true
-        self.topNavigationBar.hidden = true
+        bottomToolbar.hidden = true
+        topNavigationBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(view.frame.size)
@@ -190,8 +189,8 @@ class MemeEditorViewController: UIViewController,
         UIGraphicsEndImageContext()
         
         // Unhide toolbar and navigation bar now that meme is rendered
-        self.bottomToolbar.hidden = false
-        self.topNavigationBar.hidden = false
+        bottomToolbar.hidden = false
+        topNavigationBar.hidden = false
         
         return memedImage
     }

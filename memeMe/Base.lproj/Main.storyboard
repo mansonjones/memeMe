@@ -60,9 +60,6 @@
                             </textField>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJ3-52-07q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="sTJ-bB-BVH"/>
-                                </constraints>
                                 <items>
                                     <navigationItem id="fBF-tL-W0L">
                                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="MbT-OH-pMe">
@@ -73,16 +70,6 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="O0d-75-TzC"/>
                                     </navigationItem>
                                 </items>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="sTJ-bB-BVH"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="sTJ-bB-BVH"/>
-                                    </mask>
-                                </variation>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Bottom" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eu3-Tc-zww">
                                 <rect key="frame" x="138" y="524" width="325" height="30"/>
@@ -112,23 +99,25 @@
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="leading" secondItem="7o1-82-XvA" secondAttribute="leading" id="5Ec-py-6Op"/>
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="trailing" secondItem="7o1-82-XvA" secondAttribute="trailing" id="GT6-Ku-IpF"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVi-qi-VId"/>
+                            <constraint firstItem="qJ3-52-07q" firstAttribute="leading" secondItem="ecn-1v-KfB" secondAttribute="leading" id="IkN-gM-t0Y"/>
+                            <constraint firstItem="qJ3-52-07q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ita-Lx-dLJ"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="leading" secondItem="eu3-Tc-zww" secondAttribute="leading" id="LKo-Fd-mya"/>
-                            <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="qJ3-52-07q" secondAttribute="bottom" constant="64" id="PkT-QN-YjE"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RWm-GX-liH"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="centerX" secondItem="Nja-cw-EJ0" secondAttribute="centerX" id="T6v-fe-TWp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ecn-1v-KfB" secondAttribute="bottom" constant="8" id="c1c-za-1iX"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="108" id="dAc-Jf-ImQ"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eSr-DH-IYq"/>
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="ecn-1v-KfB" secondAttribute="centerX" id="eWa-lo-b93"/>
-                            <constraint firstItem="qJ3-52-07q" firstAttribute="leading" secondItem="ecn-1v-KfB" secondAttribute="leading" id="gOL-zC-w2W"/>
+                            <constraint firstItem="qJ3-52-07q" firstAttribute="trailing" secondItem="ecn-1v-KfB" secondAttribute="trailing" id="grX-Ca-uBR"/>
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="top" secondItem="eu3-Tc-zww" secondAttribute="bottom" constant="29" id="n8i-Mw-cTK"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xTj-J8-ncr"/>
                             <constraint firstItem="7o1-82-XvA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="zQP-NM-1FY"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="gOL-zC-w2W"/>
-                                <exclude reference="PkT-QN-YjE"/>
+                                <exclude reference="IkN-gM-t0Y"/>
+                                <exclude reference="Ita-Lx-dLJ"/>
+                                <exclude reference="grX-Ca-uBR"/>
                                 <exclude reference="dAc-Jf-ImQ"/>
                                 <exclude reference="zQP-NM-1FY"/>
                                 <exclude reference="5Ec-py-6Op"/>
@@ -139,10 +128,11 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="gOL-zC-w2W"/>
+                                <include reference="IkN-gM-t0Y"/>
+                                <include reference="Ita-Lx-dLJ"/>
+                                <include reference="grX-Ca-uBR"/>
                                 <exclude reference="3QF-Md-2xb"/>
                                 <exclude reference="LKo-Fd-mya"/>
-                                <include reference="PkT-QN-YjE"/>
                                 <include reference="dAc-Jf-ImQ"/>
                                 <include reference="zQP-NM-1FY"/>
                                 <exclude reference="3GD-hH-FB1"/>

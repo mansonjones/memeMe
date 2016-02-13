@@ -40,14 +40,9 @@ class MemeEditorViewController: UIViewController,
         
         topTextField.delegate = self
         bottomTextField.delegate = self
-        // This defines a font that is similar to the typical meme font
-        let memeTextAttributes = [
-            NSStrokeColorAttributeName: UIColor.blackColor(),
-            NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size:40.0)!,
-            NSStrokeWidthAttributeName: -3.0]
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = MemeConstants.FontStyles.Meme
+        bottomTextField.defaultTextAttributes = MemeConstants.FontStyles.Meme 
+        
         cameraBarButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
@@ -70,22 +65,10 @@ class MemeEditorViewController: UIViewController,
 
     override func viewWillLayoutSubviews() {
         print(" viewWillLayoutSubviews")
-        // Get the dimensions of the toolbar
-        // Get the list of items on the toolbar
-        var tempList = bottomToolbar.items
-        print(" Bar Button Items Begin")
-        let toolBarWidth = bottomToolbar.frame.width
-        print(" tool bar width = ", toolBarWidth)
-        for (var i = 0; i < tempList!.count; i++) {
-            print(tempList![i].width)
-        }
+       let toolBarWidth = bottomToolbar.frame.width
         bottomToolbar.items![0].width = CGFloat(0.3 * toolBarWidth)
         bottomToolbar.items![1].width = CGFloat(0.1 * toolBarWidth)
         bottomToolbar.items![2].width = CGFloat(0.3 * toolBarWidth)
-        print("Bar Button Items End")
-        // TODO: Reposition the bar button items
-        // Get the lower toolbar
-        
     }
     
     @IBAction func launchPhotoPicker(sender: AnyObject) {
@@ -106,16 +89,7 @@ class MemeEditorViewController: UIViewController,
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            print("image info")
-            print(image.size.width, image.size.height)
-            memeImageView.image = image
-            let width = memeImageView.image?.size.width
-            print(width)
-            let height = memeImageView.image?.size.height
-            print(height)
-            topTextField.topAnchor.constraintEqualToAnchor(memeImageView.topAnchor, constant: 50).active = true
-            bottomTextField.bottomAnchor.constraintEqualToAnchor(memeImageView.bottomAnchor, constant: -50).active = true
-            
+             memeImageView.image = image
         }
         dismissViewControllerAnimated(true, completion: nil)
     }

@@ -64,7 +64,6 @@ class MemeEditorViewController: UIViewController,
     }
 
     override func viewWillLayoutSubviews() {
-        print(" viewWillLayoutSubviews")
        let toolBarWidth = bottomToolbar.frame.width
         bottomToolbar.items![0].width = CGFloat(0.3 * toolBarWidth)
         bottomToolbar.items![1].width = CGFloat(0.1 * toolBarWidth)

@@ -31,21 +31,23 @@ class MemeEditorViewController: UIViewController,
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.darkGrayColor()
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
+        setupTextField(topTextField, defaultText: "TOP")
+        setupTextField(bottomTextField, defaultText: "BOTTOM")
         topTextFieldInUse = false
         bottomTextFieldInUse = false
-        topTextField.tag = 1
-        bottomTextField.tag = 2
-        
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        topTextField.defaultTextAttributes = MemeConstants.FontStyles.Meme
-        bottomTextField.defaultTextAttributes = MemeConstants.FontStyles.Meme 
         
         cameraBarButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
+    func setupTextField(textField: UITextField, defaultText: String) {
+        textField.text = defaultText
+        
+        textField.delegate = self
+        textField.defaultTextAttributes = MemeConstants.FontStyles.Meme
+        textField.autocapitalizationType = .AllCharacters
+        textField.textAlignment = .Center
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         topTextField.textAlignment = .Center
@@ -100,19 +102,16 @@ class MemeEditorViewController: UIViewController,
     
     // Delegate Function from UITextFieldDelegate
     func textFieldDidBeginEditing(textField: UITextField) {
-        switch textField.tag {
-        case 1:
+        if textField == topTextField {
             if (!topTextFieldInUse) {
                 textField.text = ""
                 topTextFieldInUse = true
             }
-        case 2:
+        } else if textField == bottomTextField {
             if (!bottomTextFieldInUse) {
                 textField.text = ""
                 bottomTextFieldInUse = true
             }
-        default:
-            return
         }
     }
     
@@ -127,7 +126,9 @@ class MemeEditorViewController: UIViewController,
     // Move the view up when the keyboard covers the bottom text field
     func keyboardWillShow(notification: NSNotification) {
         if (bottomTextField.isFirstResponder()) {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            // There is a
+            
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     

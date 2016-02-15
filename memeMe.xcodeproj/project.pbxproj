@@ -109,8 +109,8 @@
 			children = (
 				3CA85E511C61BA0100DF07FF /* AppDelegate.swift */,
 				3CF3D5CC1C63BB5D00FAD07D /* MemeEditorViewController.swift */,
-				3C483BD11C70451B006A8291 /* MemeCollectionViewController.swift */,
 				3C483BCF1C7032A6006A8291 /* MemeTableViewController.swift */,
+				3C483BD11C70451B006A8291 /* MemeCollectionViewController.swift */,
 				3C483BD31C70F337006A8291 /* MemeCollectionViewCell.swift */,
 				3C483B931C6FB288006A8291 /* MemeConstants.swift */,
 				3CF3D51A1C62F7B800FAD07D /* Meme.swift */,

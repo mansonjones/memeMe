@@ -11,17 +11,6 @@ import UIKit
 class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    // Model
-    let teams = ["Warriors","Spurs","Thunder","Wizards","Clippers"]
-    
-    // TODO: decide which approach is better
-    // var memes = [Meme]()
-    // WTF: not sure if the following line should look like this
-    // var memes: [Meme]!
-    // or
-    // var memes: [Meme]
-    // There are different version in the course notes and
-    // videos
     
     var memes: [Meme] {
         let object = UIApplication.sharedApplication().delegate

@@ -12,10 +12,6 @@ class MemeCollectionViewController : UICollectionViewController {
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
-    // To Do: figure out if the declaration of the Memes array
-    // requires a ! or not
-    //   var memes: [Meme]!
-    
     var memes: [Meme] {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
@@ -47,6 +43,8 @@ class MemeCollectionViewController : UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        // This is required so that the calls to the memes array will succeed
+        self.collectionView!.reloadData()
         self.tabBarController?.tabBar.hidden = false
     }
     
@@ -60,13 +58,17 @@ class MemeCollectionViewController : UICollectionViewController {
     // MARK: Collection View Data Source
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return self.memes.count
-        return teams.count
+        return memes.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+        // TableView example
+        //        cell.imageView?.image = memes[indexPath.row].memedImage!
+
         //let meme = memes[0]
         //let meme = memes[indexPath.item]
+        cell.memeImageView.image = memes[indexPath.row].memedImage!
     //    cell.setText(meme.top, bottomString: meme.bottom)
         // let imageView = UIImageView(image: meme.image)
         // cell.backgroundView = imageView

@@ -99,8 +99,12 @@
                             <constraint firstItem="ecn-1v-KfB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVi-qi-VId"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="centerX" secondItem="qJ3-52-07q" secondAttribute="centerX" id="Iij-lG-VD0"/>
                             <constraint firstItem="qJ3-52-07q" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ita-Lx-dLJ"/>
-                            <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="ecn-1v-KfB" secondAttribute="centerX" id="OxV-jP-qfm"/>
-                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="trailing" secondItem="ecn-1v-KfB" secondAttribute="trailing" id="PZD-LT-rC8"/>
+                            <constraint firstItem="eu3-Tc-zww" firstAttribute="centerX" secondItem="ecn-1v-KfB" secondAttribute="centerX" id="OxV-jP-qfm">
+                                <variation key="widthClass=compact" constant="-10"/>
+                            </constraint>
+                            <constraint firstItem="Nja-cw-EJ0" firstAttribute="trailing" secondItem="ecn-1v-KfB" secondAttribute="trailing" id="PZD-LT-rC8">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SbX-Gk-YgE"/>
                             <constraint firstItem="Nja-cw-EJ0" firstAttribute="bottom" secondItem="ecn-1v-KfB" secondAttribute="top" id="XDG-oU-FVM"/>
                             <constraint firstItem="eu3-Tc-zww" firstAttribute="trailing" secondItem="7o1-82-XvA" secondAttribute="trailing" id="a6I-js-bsf"/>

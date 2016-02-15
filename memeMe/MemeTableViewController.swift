@@ -61,13 +61,15 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         print(" didSelectRowAtIndexPath")
-        let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
-            MemeEditorViewController
-        // Note: I will want to pass the meme into the MemeEditor.  Something like this:
-        // memeVC.meme = self.memes[indexPath.row]
-        // Or, I could just pass the index in, since the
-        // memes array is available globally.
-        self.navigationController!.pushViewController(memeVC, animated: true)
+        // Grab the MemeDetailViewController from Storyboard
+        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
+        let detailVC = object as! MemeDetailViewController
+        
+        // Populate view controller with data from the selected item
+        detailVC.meme = self.memes[indexPath.row]
+        
+        // Present the view controller using navigation
+        self.navigationController!.pushViewController(detailVC, animated: true)
     }
 
     func launchMemeEditor() {

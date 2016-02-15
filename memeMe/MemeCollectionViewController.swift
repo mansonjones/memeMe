@@ -61,22 +61,27 @@ class MemeCollectionViewController : UICollectionViewController {
         return memes.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
-        // TableView example
-        //        cell.imageView?.image = memes[indexPath.row].memedImage!
-
-        //let meme = memes[0]
-        //let meme = memes[indexPath.item]
-        cell.memeImageView.image = memes[indexPath.row].memedImage!
-    //    cell.setText(meme.top, bottomString: meme.bottom)
-        // let imageView = UIImageView(image: meme.image)
-        // cell.backgroundView = imageView
-        
+    override func collectionView(collectionView: UICollectionView,
+        cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
+            let meme = memes[indexPath.row]
+            cell.memeImageView.image = meme.memedImage!
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        // Grab the MemeDetailViewController from Storyboard
+        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
+        let detailVC = object as! MemeDetailViewController
+        
+        // Populate view controller with data from the selected item
+        detailVC.meme = self.memes[indexPath.row]
+        
+        // Present the view controller using navigation
+        self.navigationController!.pushViewController(detailVC, animated: true)
+
+        /*
         // Grab the MemeEditorVC from the storyboard
         let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController")
         
@@ -87,5 +92,6 @@ class MemeCollectionViewController : UICollectionViewController {
         
         // Present the view controller using navigation
         navigationController!.pushViewController(memeEditorVC, animated: true)
-    }
+    */
+      }
 }

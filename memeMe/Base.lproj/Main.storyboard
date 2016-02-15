@@ -51,8 +51,7 @@
                                         <exclude reference="FwY-fB-rzU"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="165" y="108" width="52" height="30"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="FwY-fB-rzU"/>
                                     </mask>
@@ -84,8 +83,7 @@
                                         <exclude reference="xou-Hn-vRw"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="165" y="440" width="52" height="59"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="xou-Hn-vRw"/>
                                     </mask>
@@ -340,6 +338,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bz-qK-dAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1326" y="1794"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="4Zr-y5-bhH">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailView" id="eNr-96-zB9" customClass="MemeDetailViewController" customModule="memeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cjM-tb-fZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="38z-Bc-pyo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H0f-oQ-Tzi">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GO6-I0-Qze">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GO6-I0-Qze" firstAttribute="top" secondItem="cjM-tb-fZ4" secondAttribute="bottom" constant="1" id="KU5-q7-8mm"/>
+                            <constraint firstItem="GO6-I0-Qze" firstAttribute="trailing" secondItem="H0f-oQ-Tzi" secondAttribute="trailingMargin" id="dDT-wD-GrV"/>
+                            <constraint firstItem="GO6-I0-Qze" firstAttribute="leading" secondItem="H0f-oQ-Tzi" secondAttribute="leadingMargin" id="p4S-va-Y3N"/>
+                            <constraint firstItem="GO6-I0-Qze" firstAttribute="centerY" secondItem="H0f-oQ-Tzi" secondAttribute="centerY" id="s7L-xb-vnm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="GO6-I0-Qze"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KU5-q7-8mm"/>
+                                <exclude reference="dDT-wD-GrV"/>
+                                <exclude reference="p4S-va-Y3N"/>
+                                <exclude reference="s7L-xb-vnm"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="GO6-I0-Qze"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KU5-q7-8mm"/>
+                                <include reference="dDT-wD-GrV"/>
+                                <include reference="p4S-va-Y3N"/>
+                                <include reference="s7L-xb-vnm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="memeImageView" destination="GO6-I0-Qze" id="1o4-7k-h20"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YLG-s5-gk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2241" y="1507"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t2S-8m-xX5">

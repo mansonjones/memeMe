@@ -52,19 +52,6 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-  /*
-    func updateMemes() {
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as!
-            AppDelegate)
-        print(memes.count)
-        if (memes.count > 0) {
-            print(memes[0].topText)
-            print(memes[0].bottomText)
-        }
-        
-    }
-   */
-    
     // MARK: Table View Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("From number of Rows")
@@ -77,9 +64,9 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
         print("cellForRowAtIndexPath")
         
-        cell.textLabel?.text = self.memes[indexPath.row].topText!
-      //  cell.textLabel?.text = "ABC"
-        //cell.imageView?.image = UIImage(named: self.memes[indexPath.row].memedImage
+        cell.textLabel?.text = memes[indexPath.row].topText! + " / " + memes[indexPath.row].bottomText!
+        cell.imageView?.image = memes[indexPath.row].memedImage!
+      
         return cell
     }
     

@@ -29,6 +29,8 @@ class MemeCollectionViewController : UICollectionViewController {
     // let memes =
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
        
         let space: CGFloat = 3.0
         let dimension = (self.view.frame.size.width - (2*space)) / 3.0
@@ -46,6 +48,13 @@ class MemeCollectionViewController : UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
+    }
+    
+    func launchMemeEditor() {
+        // let memeEditorController = MemeTableViewController()
+        let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
+        MemeEditorViewController
+        presentViewController(memeVC, animated: true, completion: nil)
     }
     
     // MARK: Collection View Data Source

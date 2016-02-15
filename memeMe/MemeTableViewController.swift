@@ -20,33 +20,24 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem =
+        navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // Do not remove this next line!
+        // The next line is required so that the memes array will be accessible.
         self.tableView.reloadData()
-        print("*** MemeTableViewController: viewWillAppear")
-        print("the count = ", memes.count)
-        for (var i = 0; i < memes.count; i++) {
-            print(memes[i].topText!)
-            print(memes[i].bottomText!)
-        }
     }
     
     // MARK: Table View Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("From number of Rows")
-        print(memes.count)
         
         return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
-        print("cellForRowAtIndexPath")
         
         cell.textLabel?.text = memes[indexPath.row].topText! + " / " + memes[indexPath.row].bottomText!
         cell.imageView?.image = memes[indexPath.row].memedImage!
@@ -55,20 +46,19 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        print(" didSelectRowAtIndexPath")
         // Grab the MemeDetailViewController from Storyboard
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
+        let object: AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
         let detailVC = object as! MemeDetailViewController
         
         // Populate view controller with data from the selected item
-        detailVC.meme = self.memes[indexPath.row]
+        detailVC.meme = memes[indexPath.row]
         
         // Present the view controller using navigation
-        self.navigationController!.pushViewController(detailVC, animated: true)
+        navigationController!.pushViewController(detailVC, animated: true)
     }
 
     func launchMemeEditor() {
-        let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
+        let memeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
             MemeEditorViewController
         presentViewController(memeVC, animated: true, completion: nil)
     }

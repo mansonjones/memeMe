@@ -20,23 +20,18 @@ class MemeCollectionViewController : UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem =
+        navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
      }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // This is required so that the calls to the memes array will succeed
-        self.collectionView!.reloadData()
+        collectionView!.reloadData()
         self.tabBarController?.tabBar.hidden = false
     }
     
     override func viewWillLayoutSubviews() {
-        
-        print("DEBUG")
-        print("width", self.view.frame.size.width)
-        print("height", self.view.frame.size.height)
-        
         if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
            let space: CGFloat = 3.0
            let dimension = (self.view.frame.size.height - (2*space)) / 3.0
@@ -55,7 +50,6 @@ class MemeCollectionViewController : UICollectionViewController {
     }
     
     func launchMemeEditor() {
-        // let memeEditorController = MemeTableViewController()
         let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
         MemeEditorViewController
         presentViewController(memeVC, animated: true, completion: nil)
@@ -63,7 +57,6 @@ class MemeCollectionViewController : UICollectionViewController {
     
     // MARK: Collection View Data Source
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // return self.memes.count
         return memes.count
     }
     
@@ -86,18 +79,5 @@ class MemeCollectionViewController : UICollectionViewController {
         
         // Present the view controller using navigation
         self.navigationController!.pushViewController(detailVC, animated: true)
-
-        /*
-        // Grab the MemeEditorVC from the storyboard
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController")
-        
-        let memeEditorVC = object as! MemeEditorViewController
-        
-        // Populate view controller with data from the selected item
-       // memeEditorVC.blah = self.memes[indexPath.row]
-        
-        // Present the view controller using navigation
-        navigationController!.pushViewController(memeEditorVC, animated: true)
-    */
       }
 }

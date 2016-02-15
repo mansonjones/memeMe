@@ -249,11 +249,11 @@
             </objects>
             <point key="canvasLocation" x="-132" y="1311"/>
         </scene>
-        <!--Sent Memes Grid-->
+        <!--Navigation Controller-->
         <scene sceneID="5j7-L5-hhO">
             <objects>
                 <navigationController id="BDI-Rg-OVA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sent Memes Grid" id="chZ-X7-RQh"/>
+                    <tabBarItem key="tabBarItem" title="" image="collection" id="chZ-X7-RQh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7qx-F7-Pyj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -324,11 +324,11 @@
             </objects>
             <point key="canvasLocation" x="1326" y="1794"/>
         </scene>
-        <!--Sent Memes Table-->
+        <!--Navigation Controller-->
         <scene sceneID="t2S-8m-xX5">
             <objects>
                 <navigationController storyboardIdentifier="MemeEditor" automaticallyAdjustsScrollViewInsets="NO" id="T7Y-NU-mDN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sent Memes Table" id="aKA-sa-Fl0"/>
+                    <tabBarItem key="tabBarItem" title="" image="table" id="aKA-sa-Fl0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bdq-sh-6nQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -344,4 +344,8 @@
             <point key="canvasLocation" x="609" y="925"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="30" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
 </document>

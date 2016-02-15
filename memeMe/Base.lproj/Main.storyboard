@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecn-1v-KfB">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ecn-1v-KfB">
                                 <rect key="frame" x="0.0" y="548" width="600" height="44"/>
                                 <items>
                                     <barButtonItem width="138" systemItem="fixedSpace" id="EDx-4h-Mb8"/>
@@ -34,7 +35,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-cw-EJ0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nja-cw-EJ0">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Top" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7o1-82-XvA">
@@ -50,7 +51,8 @@
                                         <exclude reference="FwY-fB-rzU"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="165" y="108" width="52" height="30"/>
                                     <mask key="constraints">
                                         <include reference="FwY-fB-rzU"/>
                                     </mask>
@@ -82,7 +84,8 @@
                                         <exclude reference="xou-Hn-vRw"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="165" y="440" width="52" height="59"/>
                                     <mask key="constraints">
                                         <include reference="xou-Hn-vRw"/>
                                     </mask>
@@ -173,6 +176,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0Xc-zF-ciM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7DR-JN-1cU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yll-oH-YgX">
@@ -182,13 +186,11 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeCell" id="1Nk-wb-yjN">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Nk-wb-yjN" id="erU-PC-LNb">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="28" width="400" height="524"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="wD6-I2-ihj" id="XLz-DQ-Umi"/>
                                     <outlet property="delegate" destination="wD6-I2-ihj" id="iOU-QI-5WF"/>
@@ -207,10 +209,10 @@
                                 <exclude reference="Yll-oH-YgX"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CsD-Hw-GLT"/>
                                 <exclude reference="8TM-EB-WfT"/>
                                 <exclude reference="bCo-Qp-4Ia"/>
                                 <exclude reference="i9W-yl-Z1R"/>
-                                <exclude reference="CsD-Hw-GLT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -218,14 +220,17 @@
                                 <include reference="Yll-oH-YgX"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="CsD-Hw-GLT"/>
                                 <include reference="8TM-EB-WfT"/>
                                 <include reference="bCo-Qp-4Ia"/>
                                 <include reference="i9W-yl-Z1R"/>
-                                <include reference="CsD-Hw-GLT"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sent Memes" id="LF4-cp-WzP"/>
+                    <connections>
+                        <outlet property="tableView" destination="Yll-oH-YgX" id="y5Y-s7-0jH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="on7-N0-xsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,6 +276,7 @@
             <objects>
                 <collectionViewController id="bTU-YB-RRU" customClass="MemeCollectionViewController" customModule="memeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OGG-cy-aM0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hbx-re-nbA">
                             <size key="itemSize" width="125" height="125"/>
@@ -280,7 +286,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="bYq-9d-vr9" customClass="MemeCollectionViewCell" customModule="memeMe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>

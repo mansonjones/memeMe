@@ -10,6 +10,7 @@ import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
     // Model
     let teams = ["Warriors","Spurs","Thunder","Wizards","Clippers"]
     
@@ -34,15 +35,23 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
         self.navigationItem.leftBarButtonItem =
         UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "test1")
+        // self.tableView.reloadData()
         print(" the number of memes is:")
         print(memes.count)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-//        self.tableView?.reloadData()
-        print("MemeTableViewController: viewWillAppear")
+        // Do not remove this next line!
+        self.tableView.reloadData()
+        print("*** MemeTableViewController: viewWillAppear")
+        print("the count = ", memes.count)
+        for (var i = 0; i < memes.count; i++) {
+            print(memes[i].topText!)
+            print(memes[i].bottomText!)
+        }
     }
+    
   /*
     func updateMemes() {
         let applicationDelegate = (UIApplication.sharedApplication().delegate as!
@@ -59,17 +68,17 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: Table View Data Source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("From number of Rows")
-        print(self.memes.count)
+        print(memes.count)
         
-        return self.memes.count
+        return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
         print("cellForRowAtIndexPath")
         
-//        cell.textLabel?.text = self.memes[indexPath.row].topText
-        cell.textLabel?.text = "ABC"
+        cell.textLabel?.text = self.memes[indexPath.row].topText!
+      //  cell.textLabel?.text = "ABC"
         //cell.imageView?.image = UIImage(named: self.memes[indexPath.row].memedImage
         return cell
     }

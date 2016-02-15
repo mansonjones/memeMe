@@ -18,11 +18,6 @@ class MemeCollectionViewController : UICollectionViewController {
         return appDelegate.memes
     }
     
-    // Model
-    let teams = ["Warriors","Spurs","Thunder","Wizards","Clippers"]
-    
-    // 
-    // let memes =
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem =
@@ -35,11 +30,7 @@ class MemeCollectionViewController : UICollectionViewController {
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
         
-        // TODO: Determine if this is will provide updated memeinformation,
-        // or if it needs to be called in ViewWillAppear.
-//        let applicationDelegate = (UIApplication.sharedApplication().delegate as!
-//        AppDelegate)
-    }
+     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

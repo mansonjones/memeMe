@@ -160,17 +160,13 @@ class MemeEditorViewController: UIViewController,
     }
     
     // Create a meme object and add it to the memes array
-    func save() {
+    func save(memedImage: UIImage) {
         
-        // Update the meme
-        // TODO: In the sample code from the video
-        // both of the textfields are unwrapped, ie,
-        // topTextField.text!
         let meme = Meme(
             topText: topTextField.text!,
             bottomText: bottomTextField.text!,
             image: memeImageView.image,
-            memedImage: memeImageView.image
+            memedImage: memedImage
         )
         // Add it to the memes array on the Application Delegate
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
@@ -183,7 +179,7 @@ class MemeEditorViewController: UIViewController,
         let memedImage = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         controller.completionWithItemsHandler = { (s:String?, ok:Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            self.save()
+            self.save(memedImage)
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         presentViewController(controller, animated: true, completion: nil)

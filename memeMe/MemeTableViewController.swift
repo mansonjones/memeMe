@@ -22,11 +22,6 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
-        self.navigationItem.leftBarButtonItem =
-        UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: "test1")
-        // self.tableView.reloadData()
-        print(" the number of memes is:")
-        print(memes.count)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,17 +68,8 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func launchMemeEditor() {
-        // let memeEditorController = MemeTableViewController()
         let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
             MemeEditorViewController
         presentViewController(memeVC, animated: true, completion: nil)
     }
-    
-    func test1() {
-        print(" ----- Test1 -----")
-    }
-    
-    
-    
-    
 }

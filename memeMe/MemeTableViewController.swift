@@ -45,7 +45,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
         print("cellForRowAtIndexPath")
         
         cell.textLabel?.text = memes[indexPath.row].topText! + " / " + memes[indexPath.row].bottomText!

@@ -22,14 +22,6 @@ class MemeCollectionViewController : UICollectionViewController {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
-       
-        let space: CGFloat = 3.0
-        let dimension = (self.view.frame.size.width - (2*space)) / 3.0
-        
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
-        
      }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,6 +29,29 @@ class MemeCollectionViewController : UICollectionViewController {
         // This is required so that the calls to the memes array will succeed
         self.collectionView!.reloadData()
         self.tabBarController?.tabBar.hidden = false
+    }
+    
+    override func viewWillLayoutSubviews() {
+        
+        print("DEBUG")
+        print("width", self.view.frame.size.width)
+        print("height", self.view.frame.size.height)
+        
+        if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+           let space: CGFloat = 3.0
+           let dimension = (self.view.frame.size.height - (2*space)) / 3.0
+            updateFlowLayout(space, lineSpacing: space, dimension: dimension)
+         } else {
+            let space: CGFloat = 3.0
+            let dimension = (self.view.frame.size.width - (2*space)) / 3.0
+            updateFlowLayout(space, lineSpacing: space, dimension: dimension)
+         }
+    }
+    
+    func updateFlowLayout(interItemSpacing: CGFloat, lineSpacing: CGFloat, dimension: CGFloat) {
+        flowLayout.minimumInteritemSpacing = interItemSpacing
+        flowLayout.minimumLineSpacing = lineSpacing
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
     }
     
     func launchMemeEditor() {

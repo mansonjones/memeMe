@@ -159,13 +159,24 @@ class MemeEditorViewController: UIViewController,
             name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    // Create a meme object and add it to the memes array
     func save() {
-        _ = Meme(
-            topText: topTextField.text,
-            bottomText: bottomTextField.text,
+        
+        // Update the meme
+        // TODO: In the sample code from the video
+        // both of the textfields are unwrapped, ie,
+        // topTextField.text!
+        let meme = Meme(
+            topText: topTextField.text!,
+            bottomText: bottomTextField.text!,
             image: memeImageView.image,
             memedImage: memeImageView.image
         )
+        // Add it to the memes array on the Application Delegate
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        let count = (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count
+        print(" THE COUNT IS:")
+        print(count)
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {

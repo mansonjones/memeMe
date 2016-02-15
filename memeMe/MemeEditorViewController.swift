@@ -170,9 +170,6 @@ class MemeEditorViewController: UIViewController,
         )
         // Add it to the memes array on the Application Delegate
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        let count = (UIApplication.sharedApplication().delegate as! AppDelegate).memes.count
-        print(" THE COUNT IS:")
-        print(count)
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
@@ -183,6 +180,11 @@ class MemeEditorViewController: UIViewController,
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelMemeEditor(sender: AnyObject) {
+        print("Cancel Meme Editor")
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage

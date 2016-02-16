@@ -73,17 +73,30 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func launchPhotoPicker(sender: AnyObject) {
+        launchPicker(.PhotoLibrary)
+        /*
         let photoPickerController = UIImagePickerController()
         photoPickerController.delegate = self
         photoPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         presentViewController(photoPickerController, animated: true, completion: nil)
-    }
+        */
+}
     
     @IBAction func launchCamera(sender: AnyObject) {
+        launchPicker(.Camera)
+        /*
         let cameraController = UIImagePickerController()
         cameraController.delegate = self
         cameraController.sourceType = UIImagePickerControllerSourceType.Camera
         presentViewController(cameraController, animated: true, completion: nil)
+        */
+}
+    
+    func launchPicker(imagePickerControllerSourceType : UIImagePickerControllerSourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = imagePickerControllerSourceType
+        presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
     // Delegate Function from UIImagePickerControllerDelegate

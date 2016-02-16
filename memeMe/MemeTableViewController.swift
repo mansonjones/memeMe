@@ -27,7 +27,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // The next line is required so that the memes array will be accessible.
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     // MARK: Table View Data Source
@@ -45,7 +45,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // Grab the MemeDetailViewController from Storyboard
         let object: AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
         let detailVC = object as! MemeDetailViewController

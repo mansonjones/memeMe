@@ -68,7 +68,7 @@ class MemeCollectionViewController : UICollectionViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         // Grab the MemeDetailViewController from Storyboard
         let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")

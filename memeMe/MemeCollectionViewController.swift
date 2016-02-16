@@ -34,11 +34,11 @@ class MemeCollectionViewController : UICollectionViewController {
     override func viewWillLayoutSubviews() {
         if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
            let space: CGFloat = 3.0
-           let dimension = (self.view.frame.size.height - (2*space)) / 3.0
+           let dimension = (view.frame.size.height - (2*space)) / 3.0
             updateFlowLayout(space, lineSpacing: space, dimension: dimension)
          } else {
             let space: CGFloat = 3.0
-            let dimension = (self.view.frame.size.width - (2*space)) / 3.0
+            let dimension = (view.frame.size.width - (2*space)) / 3.0
             updateFlowLayout(space, lineSpacing: space, dimension: dimension)
          }
     }
@@ -50,7 +50,7 @@ class MemeCollectionViewController : UICollectionViewController {
     }
     
     func launchMemeEditor() {
-        let memeVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
+        let memeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
         MemeEditorViewController
         presentViewController(memeVC, animated: true, completion: nil)
     }
@@ -71,13 +71,13 @@ class MemeCollectionViewController : UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         // Grab the MemeDetailViewController from Storyboard
-        let object: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
+        let object: AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailView")
         let detailVC = object as! MemeDetailViewController
         
         // Populate view controller with data from the selected item
-        detailVC.meme = self.memes[indexPath.row]
+        detailVC.meme = memes[indexPath.row]
         
         // Present the view controller using navigation
-        self.navigationController!.pushViewController(detailVC, animated: true)
+        navigationController!.pushViewController(detailVC, animated: true)
       }
 }

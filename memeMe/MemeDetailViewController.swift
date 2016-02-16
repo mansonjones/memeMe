@@ -15,9 +15,20 @@ class MemeDetailViewController: UIViewController {
     var meme: Meme!
     
     override func viewWillAppear(animated: Bool) {
+        navigationItem.rightBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .Edit , target: self, action: "launchMemeEditor")
         super.viewWillAppear(animated)
         memeImageView!.image = meme.memedImage
         memeImageView.contentMode = .ScaleAspectFit
+    }
+    
+    func launchMemeEditor() {
+        let memeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
+        MemeEditorViewController
+        
+        memeVC.inputMeme = meme
+        presentViewController(memeVC, animated: true, completion: nil)
+
     }
 
 }

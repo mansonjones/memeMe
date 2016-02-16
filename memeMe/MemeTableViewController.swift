@@ -56,6 +56,20 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Present the view controller using navigation
         navigationController!.pushViewController(detailVC, animated: true)
     }
+    
+    // TODO: Get this to work
+    // The removeAtIndex call results in a compile error: 
+    // Cannot use mutating member on immutable value
+    /*
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+        forRowAtIndexPath indexPath: NSIndexPath) {
+        print(" delete the row")
+            if editingStyle == UITableViewCellEditingStyle.Delete {
+                memes.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
+    }
+    */
 
     func launchMemeEditor() {
         let memeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!

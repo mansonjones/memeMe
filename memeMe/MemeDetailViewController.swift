@@ -9,7 +9,7 @@
 import UIKit
 
 class MemeDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var memeImageView: UIImageView!
     
     var meme: Meme!
@@ -28,7 +28,7 @@ class MemeDetailViewController: UIViewController {
         
         memeVC.inputMeme = meme
         presentViewController(memeVC, animated: true, completion: nil)
-
+        
     }
-
+    
 }

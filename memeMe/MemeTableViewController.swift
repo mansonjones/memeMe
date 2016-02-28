@@ -9,7 +9,7 @@
 import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var memes: [Meme] {
@@ -41,7 +41,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         cell.textLabel?.text = memes[indexPath.row].topText! + " / " + memes[indexPath.row].bottomText!
         cell.imageView?.image = memes[indexPath.row].memedImage!
-      
+        
         return cell
     }
     
@@ -65,10 +65,10 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
     }
-
+    
     func launchMemeEditor() {
         let memeVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as!
-            MemeEditorViewController
+        MemeEditorViewController
         presentViewController(memeVC, animated: true, completion: nil)
     }
 }

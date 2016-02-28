@@ -19,5 +19,5 @@ struct MemeConstants {
             NSStrokeWidthAttributeName: -3.0
         ]
     }
-
+    
 }

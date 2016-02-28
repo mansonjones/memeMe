@@ -9,7 +9,7 @@
 import UIKit
 
 class MemeCollectionViewController : UICollectionViewController {
-
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme] {
@@ -22,25 +22,25 @@ class MemeCollectionViewController : UICollectionViewController {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "launchMemeEditor")
-     }
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // This is required so that the calls to the memes array will succeed
         collectionView!.reloadData()
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
     }
     
     override func viewWillLayoutSubviews() {
         if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
-           let space: CGFloat = 3.0
-           let dimension = (view.frame.size.height - (2*space)) / 3.0
+            let space: CGFloat = 3.0
+            let dimension = (view.frame.size.height - (2*space)) / 3.0
             updateFlowLayout(space, lineSpacing: space, dimension: dimension)
-         } else {
+        } else {
             let space: CGFloat = 3.0
             let dimension = (view.frame.size.width - (2*space)) / 3.0
             updateFlowLayout(space, lineSpacing: space, dimension: dimension)
-         }
+        }
     }
     
     func updateFlowLayout(interItemSpacing: CGFloat, lineSpacing: CGFloat, dimension: CGFloat) {
@@ -65,7 +65,7 @@ class MemeCollectionViewController : UICollectionViewController {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath) as! MemeCollectionViewCell
             let meme = memes[indexPath.row]
             cell.memeImageView.image = meme.memedImage!
-        return cell
+            return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -79,5 +79,5 @@ class MemeCollectionViewController : UICollectionViewController {
         
         // Present the view controller using navigation
         navigationController!.pushViewController(detailVC, animated: true)
-      }
+    }
 }

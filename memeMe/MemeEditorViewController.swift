@@ -80,6 +80,7 @@ class MemeEditorViewController: UIViewController,
         textField.autocapitalizationType = .AllCharacters
         textField.textAlignment = .Center
     }
+    
     func launchPicker(imagePickerControllerSourceType : UIImagePickerControllerSourceType) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
